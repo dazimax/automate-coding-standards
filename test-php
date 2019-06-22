@@ -2,9 +2,8 @@
 
 namespace Test
 
-class Test 
+class Test
 {
-    //test
     public function TestMethod()
     {
         return 10;
