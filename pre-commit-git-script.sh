@@ -38,21 +38,19 @@ done
 # Sonar Scanning
 for SCANFILE in $SSFILES
 do
-    echo "File name : "
-    echo $SCANFILE
     SCANFILES="$SCANFILES$PROJECT/$SCANFILE,"
 done
 
-echo "Running Sonar Scanner to generate the result of coding standard report.."
+echo "\n${yellow}Running Sonar Scanner to generate the result of coding standard report.."
 sonar-scanner -Dsonar.projectKey=TestCode -Dsonar.sources=$SCANFILES -Dsonar.host.url=http://localhost:8000 -Dsonar.login=d91fc0b5f1eedb7ea3e6c61ff7831875a4ad1831
 
 # PHPCBF, PHPCS Scanning
 if [ "$FILES" != "" ]
 then
-    echo "${yellow}Running PHPBF for automatically fix issues.."
+    echo "\n${yellow}Running PHPBF for automatically fix issues.."
     echo "/usr/bin/phpcbf $FILES"
     /usr/bin/phpcbf $FILES
-    echo "\n${yellow}Running PHP Code Sniffer.. Code Standard PSR2.${no_color}${red}"
+    echo "\n${red}Running PHP Code Sniffer.. Code Standard PSR2."
     /usr/bin/phpcs --standard=PSR2 --encoding=utf-8 -p $FILES
     if [ $? != 0 ]
     then
