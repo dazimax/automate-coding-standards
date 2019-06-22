@@ -3,7 +3,7 @@ namespace Test
 
 class Test 
 {
-    public function testMethod()
+    public function TestMethod()
     {
         return 10;
     }
