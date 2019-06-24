@@ -51,7 +51,7 @@ then
     echo "/usr/bin/phpcbf $FILES"
     /usr/bin/phpcbf $FILES
     echo "\n${red}Running PHP Code Sniffer.. Code Standard PSR2."
-    /usr/bin/phpcs --standard=PSR2 --encoding=utf-8 -p $FILES
+    /usr/bin/phpcs --standard=PSR2 --warning-severity=0 --encoding=utf-8 -p $FILES
     if [ $? != 0 ]
     then
         echo "\n${red}Fix the error(s) before commit!\n"
